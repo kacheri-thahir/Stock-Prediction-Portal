@@ -15,3 +15,6 @@ body{
 .container{
     flex: 1;
 }
+.register-bg{
+    background-color: #253745;
+}

@@ -9,6 +9,15 @@ class UserSerializer(serializers.ModelSerializer):
         model=User
         fields=['username','email','password']
 
+
+    # This is for checking email already exists in db 
+    def validate_email(self, value):
+        """Ensure email is unique."""
+        if User.objects.filter(email=value).exists():
+            raise serializers.ValidationError("This email is already registered.")
+        return value
+
+
     def create(self, validated_data):
         # User.objects.create = saves password in plain text
         # User.objects.create_user = automatically hashes the password that why we used create_user
