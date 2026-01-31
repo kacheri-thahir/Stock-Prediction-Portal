@@ -6,12 +6,15 @@ import Main from './components/main'
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import Register from './components/Register'
 import Login from './components/Login'
+import AuthProvider, { AuthContext } from './components/AuthProvider'
 
 function App() {
   
 
   return (
     <>
+    <AuthProvider>
+
       <BrowserRouter>
       {/* To display Header every where we use Header component here */}
       <Header/>
@@ -24,7 +27,9 @@ function App() {
         </Routes>
         {/* To display Footer every where we use Footer component here */}
       <Footer/>
-      </BrowserRouter>      
+      </BrowserRouter>  
+      
+    </AuthProvider>    
     </>
   )
 }
