@@ -25,7 +25,6 @@ const Register = () => {
     
     try {
       const response = await axios.post('http://127.0.0.1:8000/api/v1/register/',userData);
-      console.log('response.data==>',response.data);
       console.log("Registration successful.");
       seterrors({})  //if no error occurs no error will be displayed
       setsuccess(true) //set true if registration is successful
